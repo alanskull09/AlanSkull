@@ -1406,50 +1406,6 @@ article blockquote {
     transform: translateX(0);
   }
 }
-
-/* =============================== */
-/* FIX iOS: botón siempre clickeable */
-/* =============================== */
-@media (max-width: 991px) {
-  /* crea stacking context arriba de todo */
-  #site-sidebar {
-    position: relative;
-    z-index: 10000;
-  }
-
-  /* el header/topbar que contiene el botón */
-  #site-sidebar .nav-content {
-    position: relative;
-    z-index: 10001;
-  }
-
-  /* el botón por encima de todo */
-  #site-sidebar .w-nav-button {
-    position: relative !important;
-    z-index: 10002 !important;
-    pointer-events: auto !important;
-  }
-
-  /* IMPORTANTÍSIMO: el menú NO debe tapar el botón cuando está cerrado */
-  #site-sidebar .w-nav-menu {
-    pointer-events: none; /* cerrado: no captura taps */
-  }
-
-  #site-sidebar.is-open .w-nav-menu {
-    pointer-events: auto; /* abierto: sí */
-  }
-
-  /* overlay solo captura cuando está abierto */
-  #site-sidebar .mobile-overlay {
-    pointer-events: none;
-  }
-
-  #site-sidebar.is-open .mobile-overlay {
-    pointer-events: auto;
-  }
-}
-
-
 @media (max-width: 991px) {
   /* Quita floats Webflow */
   .w-nav-brand,
