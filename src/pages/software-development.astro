@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Project from "../components/Project.astro";
 import Sidebar from "../components/Sidebar.astro";
+<<<<<<< HEAD
 const projects = [
   {
     title: "CodeCraft",
@@ -30,11 +31,33 @@ const projects = [
       "Resolved live production bugs and server issues"
     ],
     tech: ["React", "Node.js", "Express.js", "MySQL", "AWS"]
+=======
+
+const projects = [
+  {
+    title: "Coverage Maps (Office Depot)",
+    desc: [
+      "Frontend web application for visualizing store coverage areas using interactive maps.",
+      "Worked with polygons, routes, and geolocation data.",
+      "Focused on usability, UI feedback, and performance when rendering large datasets."
+    ],
+    tech: ["Angular", "TypeScript", "Google Maps API", "REST APIs"]
+  },
+  {
+    title: "Git Automation Platform",
+    desc: [
+      "Web platform to track commits and activity across GitHub and GitLab repositories.",
+      "Implemented OAuth authentication and role-based access.",
+      "Designed dashboards for monitoring team contributions."
+    ],
+    tech: ["Spring Boot", "React", "Vite", "GitHub API", "GitLab API"]
+>>>>>>> 67c98db (add github pages workflow)
   }
 ];
 ---
 
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html
 >
   <Header title="Software Development | Sam Bernstein" />
@@ -61,12 +84,44 @@ const projects = [
                       />
                     ))}
                   </div>
+=======
+<html>
+  <Header title="Software Development | Alan López" />
+  <body>
+    <div class="content">
+      <Sidebar selectedItem="software-development" />
+      <nav class="main">
+        <div class="container">
+          <div class="back-nav-container">
+            <a href="/" class="back-nav-button w-inline-block">
+              <img src="/assets/back.svg" loading="lazy" alt="" class="back-nav-img" />
+              <div>Back</div>
+            </a>
+          </div>
+
+          <div class="content-container">
+            <h1>Software Development</h1>
+
+            <section class="items-container">
+              <div class="resouce-items">
+                {projects.map(project => (
+                  <Project
+                    title={project.title}
+                    desc={project.desc}
+                    tech={project.tech}
+                  />
+                ))}
+              </div>
+>>>>>>> 67c98db (add github pages workflow)
             </section>
           </div>
         </div>
       </nav>
     </div>
+<<<<<<< HEAD
 
     <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+=======
+>>>>>>> 67c98db (add github pages workflow)
   </body>
 </html>

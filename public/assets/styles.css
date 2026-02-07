@@ -4,10 +4,23 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font-family: sans-serif;
+<<<<<<< HEAD
+=======
+  height: 100%;
+>>>>>>> 67c98db (add github pages workflow)
 }
 
 body {
   margin: 0;
+<<<<<<< HEAD
+=======
+  min-height: 100%;
+  color: #333;
+  background-color: #161616;
+  font-family: IBM Plex Sans, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+>>>>>>> 67c98db (add github pages workflow)
 }
 
 aside,
@@ -33,6 +46,12 @@ h1 {
 
 img {
   border: 0;
+<<<<<<< HEAD
+=======
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+>>>>>>> 67c98db (add github pages workflow)
 }
 
 @font-face {
@@ -47,6 +66,7 @@ img {
   box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 html {
   height: 100%;
 }
@@ -67,6 +87,8 @@ img {
   display: inline-block;
 }
 
+=======
+>>>>>>> 67c98db (add github pages workflow)
 .w-inline-block {
   max-width: 100%;
   display: inline-block;
@@ -92,6 +114,7 @@ h4 {
 }
 
 h1 {
+<<<<<<< HEAD
   margin-top: 20px;
   font-size: 38px;
   line-height: 44px;
@@ -106,12 +129,46 @@ h3 {
 h4 {
   margin-top: 10px;
   font-size: 18px;
+=======
+  color: #fff;
+  letter-spacing: -0.5px;
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 58px;
+  font-weight: 300;
+  line-height: 72px;
+}
+
+h3 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 42px;
+}
+
+h4 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: 400;
+>>>>>>> 67c98db (add github pages workflow)
   line-height: 24px;
 }
 
 p {
+<<<<<<< HEAD
   margin-top: 0;
   margin-bottom: 10px;
+=======
+  color: #a8a8a8;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 26px;
+>>>>>>> 67c98db (add github pages workflow)
 }
 
 ul {
@@ -120,11 +177,17 @@ ul {
   padding-left: 40px;
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 767px) {
   .w-nav-brand {
     padding-left: 10px;
   }
 }
+=======
+/* ===================== */
+/* WEBFLOW NAV DEFAULTS  */
+/* ===================== */
+>>>>>>> 67c98db (add github pages workflow)
 
 .w-richtext:before,
 .w-richtext:after {
@@ -196,6 +259,7 @@ ul {
   outline: 0;
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 991px) {
   .w-nav[data-collapse='medium'] .w-nav-menu {
     display: none;
@@ -272,6 +336,11 @@ p {
   font-size: 16px;
   line-height: 26px;
 }
+=======
+/* ===================== */
+/* LAYOUT / THEME        */
+/* ===================== */
+>>>>>>> 67c98db (add github pages workflow)
 
 .content {
   width: 100vw;
@@ -326,7 +395,13 @@ p {
 .main {
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
   background-image: linear-gradient(rgba(28, 28, 28, 0.64), rgba(28, 28, 28, 0.64)), url('./grid-top-right.svg'), linear-gradient(rgba(28, 28, 28, 0.24), rgba(28, 28, 28, 0.24));
+=======
+  background-image: linear-gradient(rgba(28, 28, 28, 0.64), rgba(28, 28, 28, 0.64)),
+    url('./grid-top-right.svg'),
+    linear-gradient(rgba(28, 28, 28, 0.24), rgba(28, 28, 28, 0.24));
+>>>>>>> 67c98db (add github pages workflow)
   background-position: 0 0, 0 0, 0 0;
   background-size: auto, auto 1130px, auto;
   flex-direction: column;
@@ -557,7 +632,41 @@ p {
   height: 82px;
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 991px) {
+=======
+/* ===================== */
+/* RESPONSIVE            */
+/* ===================== */
+
+@media screen and (max-width: 991px) {
+  .w-nav[data-collapse='medium'] .w-nav-menu {
+    display: none;
+  }
+
+  .w-nav[data-collapse='medium'] .w-nav-menu.is-visible {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 92px;
+    background: white;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: transform 250ms ease, opacity 250ms ease;
+    will-change: transform, opacity;
+  }
+
+  .w-nav[data-collapse='medium'] .w-nav-menu.is-visible.is-open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .w-nav[data-collapse='medium'] .w-nav-button {
+    display: block;
+  }
+
+>>>>>>> 67c98db (add github pages workflow)
   .content {
     flex-direction: column;
   }
@@ -608,6 +717,13 @@ p {
 }
 
 @media screen and (max-width: 767px) {
+<<<<<<< HEAD
+=======
+  .w-nav-brand {
+    padding-left: 10px;
+  }
+
+>>>>>>> 67c98db (add github pages workflow)
   h1 {
     font-size: 54px;
     line-height: 64px;
@@ -669,3 +785,728 @@ p {
     height: 64px;
   }
 }
+<<<<<<< HEAD
+=======
+
+/* ============================= */
+/* BLOG READABILITY IMPROVEMENTS */
+/* ============================= */
+
+/* Asegura que el texto del post contraste SIEMPRE */
+article,
+article p,
+article li,
+article span,
+article strong,
+article em {
+  color: #eaeaea !important;
+}
+
+article {
+  max-width: 820px;
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+/* Headings */
+article h1,
+article h2,
+article h3,
+article h4 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  margin-top: 32px;
+  margin-bottom: 14px;
+}
+
+/* Párrafos */
+article p {
+  color: #dcdcdc !important;
+  margin-bottom: 16px;
+}
+
+/* Links */
+article a {
+  color: #7db7ff !important;
+  text-decoration: underline;
+}
+
+article a:hover {
+  color: #a6d2ff !important;
+}
+
+/* Listas */
+article li {
+  color: #dcdcdc !important;
+  margin-bottom: 6px;
+}
+
+/* Código inline */
+article code {
+  background: #1f1f1f !important;
+  padding: 3px 6px;
+  border-radius: 6px;
+  color: #9cdcfe !important;
+}
+
+/* Bloques de código */
+article pre {
+  background: #161616 !important;
+  padding: 18px !important;
+  border-radius: 12px !important;
+  overflow-x: auto;
+  border: 1px solid #2a2a2a !important;
+}
+
+/* Separadores */
+article hr {
+  border: none !important;
+  border-top: 1px solid #333 !important;
+  margin: 32px 0 !important;
+}
+
+/* Quotes */
+article blockquote {
+  border-left: 3px solid #7db7ff !important;
+  padding-left: 14px;
+  color: #cfcfcf !important;
+  opacity: 0.98;
+}
+
+
+/* ===================================================== */
+/* BLOG THEME A: NEON BLUE + GLASS (High contrast)        */
+/* Pegar al final del styles.css (fuera de @media)        */
+/* ===================================================== */
+
+:root {
+  --blog-bg: rgba(255, 255, 255, 0.03);
+  --blog-border: rgba(255, 255, 255, 0.08);
+  --blog-text: #e9edf6;
+  --blog-muted: rgba(233, 237, 246, 0.72);
+  --blog-accent: #67b7ff;     /* azul */
+  --blog-accent-2: #a78bfa;   /* morado */
+  --blog-code-bg: rgba(0, 0, 0, 0.35);
+}
+
+/* Contenedor del post (funciona aunque no uses <article>) */
+.main .content-container article,
+.main .content-container .post,
+.main .content-container {
+  color: var(--blog-text);
+}
+
+/* Si tienes <article> úsalo, si no, cae a .content-container */
+.main .content-container article,
+.main .content-container .post {
+  background: var(--blog-bg);
+  border: 1px solid var(--blog-border);
+  border-radius: 14px;
+  padding: 22px 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* Texto del markdown */
+.main .content-container article p,
+.main .content-container article li,
+.main .content-container .post p,
+.main .content-container .post li {
+  color: var(--blog-muted);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+/* Títulos */
+.main .content-container article h1,
+.main .content-container article h2,
+.main .content-container article h3,
+.main .content-container article h4,
+.main .content-container .post h1,
+.main .content-container .post h2,
+.main .content-container .post h3,
+.main .content-container .post h4 {
+  color: var(--blog-text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Subrayado con gradiente */
+.main .content-container article h2,
+.main .content-container .post h2 {
+  margin-top: 34px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--blog-border);
+  position: relative;
+}
+
+.main .content-container article h2::after,
+.main .content-container .post h2::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 120px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blog-accent), var(--blog-accent-2));
+}
+
+/* Links */
+.main .content-container article a,
+.main .content-container .post a {
+  color: var(--blog-accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(103, 183, 255, 0.35);
+  transition: all 120ms ease;
+}
+
+.main .content-container article a:hover,
+.main .content-container .post a:hover {
+  color: #bfe4ff;
+  border-bottom-color: rgba(167, 139, 250, 0.6);
+}
+
+/* Listas */
+.main .content-container article ul,
+.main .content-container .post ul {
+  padding-left: 22px;
+}
+
+/* Blockquote */
+.main .content-container article blockquote,
+.main .content-container .post blockquote {
+  margin: 22px 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--blog-accent);
+  background: rgba(103, 183, 255, 0.08);
+  border-radius: 10px;
+  color: var(--blog-text);
+}
+
+/* Código */
+.main .content-container article code,
+.main .content-container .post code {
+  background: var(--blog-code-bg);
+  border: 1px solid rgba(103, 183, 255, 0.18);
+  padding: 2px 6px;
+  border-radius: 7px;
+  color: #c7e7ff;
+}
+
+.main .content-container article pre,
+.main .content-container .post pre {
+  background: rgba(0,0,0,0.42);
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 14px;
+  padding: 16px 16px;
+  overflow-x: auto;
+}
+
+/* Separadores */
+.main .content-container article hr,
+.main .content-container .post hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(103,183,255,0.5), transparent);
+  margin: 28px 0;
+}
+
+/* En la lista de /blog: mejora cards */
+.main .resouce-items a.projects-container {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 16px;
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+.main .resouce-items a.projects-container:hover {
+  transform: translateY(-2px);
+  border-color: rgba(103,183,255,0.25);
+  background: rgba(103,183,255,0.06);
+}
+
+
+v/* ===================================================== */
+/* 🔥 NEON BLOG UPGRADE – Alan Style (QA / Dev / Gamer)  */
+/* ===================================================== */
+
+:root {
+  --neon-blue: #5cc8ff;
+  --neon-purple: #a78bfa;
+  --text-main: #f1f5ff;
+  --text-soft: rgba(241,245,255,0.82);
+  --glass-bg: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.12);
+}
+
+
+/* ===================================================== */
+/* 📦 MÁS ANCHO (ANTES 680px) */
+/* ===================================================== */
+
+.container {
+  max-width: 1100px !important;
+}
+
+.content-container {
+  max-width: 1000px !important;
+}
+
+
+/* ===================================================== */
+/* 🧊 POST CARD (más grande + glass) */
+/* ===================================================== */
+
+.main .content-container article,
+.main .content-container .post {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+
+  padding: 38px 44px;
+  margin-top: 18px;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.05),
+    0 20px 50px rgba(0,0,0,0.55),
+    0 0 30px rgba(92,200,255,0.06);
+}
+
+
+/* ===================================================== */
+/* ✨ TEXTO PRINCIPAL */
+/* ===================================================== */
+
+.main article p,
+.main article li {
+  color: var(--text-soft);
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+
+/* ===================================================== */
+/* 🌟 TITULOS NEON */
+/* ===================================================== */
+
+.main article h1 {
+  font-size: 60px;
+  font-weight: 700;
+  color: var(--text-main);
+
+  text-shadow:
+    0 0 10px rgba(92,200,255,0.6),
+    0 0 22px rgba(167,139,250,0.35);
+}
+
+.main article h2,
+.main article h3 {
+  color: var(--text-main);
+
+  text-shadow:
+    0 0 6px rgba(92,200,255,0.5);
+
+  margin-top: 42px;
+  margin-bottom: 14px;
+}
+
+
+/* Línea neon bajo subtítulos */
+.main article h2::after {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    var(--neon-blue),
+    var(--neon-purple)
+  );
+}
+
+
+/* ===================================================== */
+/* 🔗 LINKS NEON */
+/* ===================================================== */
+
+.main article a {
+  color: var(--neon-blue);
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(92,200,255,0.4);
+  transition: 0.15s ease;
+}
+
+.main article a:hover {
+  color: #bfe9ff;
+
+  text-shadow: 0 0 8px rgba(92,200,255,0.8);
+  border-bottom-color: rgba(167,139,250,0.8);
+}
+
+
+/* ===================================================== */
+/* 💬 QUOTES */
+/* ===================================================== */
+
+.main article blockquote {
+  background: rgba(92,200,255,0.07);
+  border-left: 4px solid var(--neon-blue);
+  border-radius: 10px;
+
+  padding: 14px 18px;
+  color: var(--text-main);
+}
+
+
+/* ===================================================== */
+/* 💻 CÓDIGO */
+/* ===================================================== */
+
+.main article code {
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(92,200,255,0.25);
+
+  padding: 4px 8px;
+  border-radius: 8px;
+
+  color: #9cdcfe;
+}
+
+.main article pre {
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(167,139,250,0.25);
+
+  padding: 18px;
+  border-radius: 14px;
+
+  overflow-x: auto;
+}
+
+
+/* ===================================================== */
+/* 📱 RESPONSIVE */
+/* ===================================================== */
+
+@media (max-width: 900px) {
+
+  .container,
+  .content-container {
+    max-width: 95% !important;
+  }
+
+  .main article h1 {
+    font-size: 40px;
+  }
+
+  .main .content-container article {
+    padding: 22px;
+  }
+}
+
+/* ======================================= */
+/* 🔥 FORCE NEON TITLES (override all) */
+/* ======================================= */
+
+.main article h1,
+.main article h2,
+.main article h3,
+.main article h4 {
+  color: #ffffff !important;
+
+  text-shadow:
+    0 0 6px #5cc8ff,
+    0 0 12px #5cc8ff,
+    0 0 24px rgba(92, 200, 255, 0.9),
+    0 0 40px rgba(167, 139, 250, 0.6) !important;
+}
+
+
+/* Extra glow para título principal */
+.main article h1 {
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+}
+
+/* ========================================= */
+/* 🚀 NEON PURPLE BLOG THEME (FINAL STYLE)   */
+/* ========================================= */
+
+/* Contenedor MÁS ancho */
+.main article {
+  max-width: 1000px;
+  width: 100%;
+  font-size: 18px;
+  line-height: 1.9;
+  color: #e8e8e8;
+}
+
+/* ================= */
+/* TITLES NEON       */
+/* ================= */
+
+.main article h1 {
+  color: #c084fc !important;
+
+  text-shadow:
+    0 0 6px #c084fc,
+    0 0 14px #a855f7,
+    0 0 28px #9333ea,
+    0 0 60px rgba(147, 51, 234, 0.9);
+
+  font-weight: 800 !important;
+  letter-spacing: -0.5px;
+}
+
+.main article h2,
+.main article h3,
+.main article h4 {
+  color: #d8b4fe !important;
+
+  text-shadow:
+    0 0 4px #a855f7,
+    0 0 10px rgba(168, 85, 247, 0.8);
+
+  font-weight: 600 !important;
+}
+
+/* ================= */
+/* TEXT              */
+/* ================= */
+
+.main article p,
+.main article li {
+  color: #e5e5e5;
+}
+
+/* ================= */
+/* LINKS CYAN GLOW   */
+/* ================= */
+
+.main article a {
+  color: #22d3ee;
+  text-decoration: none;
+  font-weight: 500;
+
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.7);
+  transition: 0.2s;
+}
+
+.main article a:hover {
+  color: #67e8f9;
+  text-shadow: 0 0 14px rgba(103, 232, 249, 1);
+}
+
+/* ================= */
+/* TAGS / CHIPS NEON */
+/* ================= */
+
+.single-chip {
+  background: rgba(147, 51, 234, 0.15);
+  border: 1px solid #9333ea;
+  color: #e9d5ff;
+
+  box-shadow: 0 0 10px rgba(147, 51, 234, 0.6);
+}
+
+/* ================= */
+/* POST CARD BIGGER  */
+/* ================= */
+
+.main article > div,
+.main article section,
+.main article .content {
+  background: rgba(20, 20, 22, 0.75);
+  border: 1px solid rgba(147, 51, 234, 0.25);
+  border-radius: 16px;
+  padding: 42px;
+  box-shadow: 0 0 40px rgba(147, 51, 234, 0.12);
+}
+
+/* ================= */
+/* CODE BLOCKS       */
+/* ================= */
+
+.main article pre {
+  background: #141417;
+  border: 1px solid #9333ea;
+  box-shadow: 0 0 16px rgba(147, 51, 234, 0.35);
+}
+
+.main article code {
+  color: #c084fc;
+}
+
+/* ================= */
+/* BLOCKQUOTE        */
+/* ================= */
+
+.main article blockquote {
+  border-left: 4px solid #9333ea;
+  padding-left: 18px;
+  color: #e9d5ff;
+  background: rgba(147, 51, 234, 0.08);
+}
+
+/* ================= */
+/* HR SEPARATOR      */
+/* ================= */
+
+.main article hr {
+  border: none;
+  border-top: 1px solid rgba(124, 58, 237, 0.38); /* morado oscuro suave */
+}
+
+/* ========================================= */
+/* ✨ SOFT NEON THEME (clean + pro look)      */
+/* ========================================= */
+
+:root {
+  /* Titles (H1) */
+  --orange-title: #fbbf24;     /* naranja */
+  --orange-title-2: #f59e0b;   /* un poquito más oscuro para hover/variaciones */
+
+  /* Subtitles (H2/H3) */
+  --purple-dark: #7c3aed;      /* morado oscuro */
+  --purple-neon: rgba(124, 58, 237, 0.65);
+
+  /* Text */
+  --text-soft: #e6e6e6;
+  --text-muted: #cfcfcf;
+
+  /* Link */
+  --cyan-soft: #6ea8ff;
+
+  /* Surfaces */
+  --card-bg: rgba(24, 24, 30, 0.84);
+  --card-border: rgba(124, 58, 237, 0.22);
+}
+
+/* ===================== */
+/* TITLES (HOME + BLOG)  */
+/* ===================== */
+
+/* H1: NARANJA + POCO NEON */
+.main h1,
+.main article h1 {
+  color: var(--orange-title) !important;
+  font-weight: 700 !important;
+
+  /* glow MUY suave (no tan neon) */
+  text-shadow:
+    0 0 2px rgba(251, 191, 36, 0.18),
+    0 0 8px rgba(245, 158, 11, 0.10) !important;
+}
+
+/* H2/H3: MORADO OSCURO + SI NEON */
+.main h2,
+.main h3,
+.main article h2,
+.main article h3 {
+  color: var(--purple-dark) !important;
+
+  /* glow MÁS marcado (neón real) */
+  text-shadow:
+    0 0 4px rgba(124, 58, 237, 0.55),
+    0 0 14px rgba(124, 58, 237, 0.35),
+    0 0 26px rgba(124, 58, 237, 0.18) !important;
+}
+
+/* ===================== */
+/* TEXT READABILITY      */
+/* ===================== */
+
+.main p,
+.main article p,
+.main .lead {
+  color: var(--text-soft) !important;
+  line-height: 1.85;
+  font-size: 17px;
+}
+
+.main article li {
+  color: var(--text-muted);
+}
+
+/* ===================== */
+/* ARTICLE CARD          */
+/* ===================== */
+
+.main article {
+  max-width: 960px; /* más ancho */
+  width: min(96%, 960px);
+
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+
+  border-radius: 18px;
+  padding: 48px;
+
+  backdrop-filter: blur(10px);
+
+  /* glow sutil morado */
+  box-shadow:
+    0 0 18px rgba(124, 58, 237, 0.10);
+}
+
+/* ===================== */
+/* LINKS                 */
+/* ===================== */
+
+.main article a {
+  color: var(--cyan-soft);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.main article a:hover {
+  color: var(--orange-title);
+}
+
+/* ===================== */
+/* TAGS / CHIPS           */
+/* ===================== */
+
+.single-chip {
+  background: rgba(124, 58, 237, 0.14) !important;
+  border: 1px solid rgba(124, 58, 237, 0.40) !important;
+  color: rgba(216, 180, 254, 0.95) !important;
+
+  box-shadow:
+    0 0 10px rgba(124, 58, 237, 0.16) !important;
+}
+
+/* ===================== */
+/* HOME SECTION TITLES    */
+/* ===================== */
+
+.projects-section h3,
+.projects-section h4 {
+  color: var(--purple-dark) !important;
+  text-shadow:
+    0 0 4px rgba(124, 58, 237, 0.45),
+    0 0 12px rgba(124, 58, 237, 0.22);
+}
+
+/* ===================== */
+/* MOBILE                */
+/* ===================== */
+
+@media screen and (max-width: 767px) {
+  .main article {
+    padding: 28px;
+  }
+
+  .main h1,
+  .main article h1 {
+    /* un poquito más compacto en móvil */
+    letter-spacing: -0.3px;
+  }
+}
+>>>>>>> 67c98db (add github pages workflow)

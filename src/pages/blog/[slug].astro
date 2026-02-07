@@ -1,0 +1,58 @@
+---
+import Header from "../../components/Header.astro";
+import Sidebar from "../../components/Sidebar.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => data.draft !== true);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout>
+  <Header title={`${post.data.title} | Alan López`} />
+  <div class="content">
+    <Sidebar selectedItem="blog" />
+    <nav class="main">
+      <div class="container">
+        <div class="back-nav-container">
+          <a href="/blog" class="back-nav-button w-inline-block">
+            <img src="/assets/back.svg" loading="lazy" alt="" class="back-nav-img" />
+            <div>Back</div>
+          </a>
+        </div>
+
+        <div class="content-container">
+          <h1>{post.data.title}</h1>
+
+          <div class="mini-label-white gray-color" style="margin-top: 10px;">
+            {post.data.date.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "2-digit",
+            })}
+          </div>
+
+          {post.data.tags?.length ? (
+            <div class="chips-container chips-container-small-width" style="margin-top: 14px;">
+              {post.data.tags.map((t) => (
+                <div class="single-chip small-chip">{t}</div>
+              ))}
+            </div>
+          ) : null}
+
+          <article style="margin-top: 22px;">
+            <Content />
+          </article>
+        </div>
+      </div>
+    </nav>
+  </div>
+</Layout>

@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 import Header from '../components/Header.astro';
 import Project from "../components/Project.astro";
 import Sidebar from "../components/Sidebar.astro";
@@ -30,11 +31,45 @@ const projects = [
       "Deployed logging and monitoring tools in GKE cluster",
     ],
     tech: ["GCP", "Terraform", "Kubernetes", "GitLab"]
+=======
+import Header from "../components/Header.astro";
+import Project from "../components/Project.astro";
+import Sidebar from "../components/Sidebar.astro";
+
+const projects = [
+  {
+    title: "QA Testing & Bug Reporting",
+    desc: [
+      "I enjoy testing web apps with a focus on edge cases, usability, and real user flows.",
+      "I write clear bug reports with reproducible steps and useful evidence when needed.",
+      "I like working closely with devs to validate fixes and prevent regressions."
+    ],
+    tech: ["Test cases", "Bug reports", "Exploratory testing", "Regression testing"]
+  },
+  {
+    title: "API Testing & Tooling",
+    desc: [
+      "I use API testing to understand systems better and catch issues early.",
+      "I’m comfortable validating responses, payloads, status codes, and basic auth flows.",
+      "I document findings so they’re easy to follow and repeat."
+    ],
+    tech: ["Postman", "REST APIs", "JSON", "HTTP", "Swagger/OpenAPI"]
+  },
+  {
+    title: "Workflow, Linux & Version Control",
+    desc: [
+      "I work in Linux environments and I’m always polishing my workflow.",
+      "I’m used to working with Git, branches, and collaborating on repos.",
+      "I’m exploring CI/CD concepts to connect testing with reliable deployments."
+    ],
+    tech: ["Linux", "Git", "GitHub/GitLab", "Bash", "CI/CD (learning)"]
+>>>>>>> 67c98db (add github pages workflow)
   }
 ];
 ---
 
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html
 >
   <Header title="DevOps | Sam Bernstein" />
@@ -61,12 +96,48 @@ const projects = [
                       />
                     ))}
                   </div>
+=======
+<html>
+  <Header title="QA & Tooling | Alan López" />
+  <body>
+    <div class="content">
+      <Sidebar selectedItem="devops" />
+      <nav class="main">
+        <div class="container">
+          <div class="back-nav-container">
+            <a href="/" class="back-nav-button w-inline-block">
+              <img
+                src="/assets/back.svg"
+                loading="lazy"
+                alt=""
+                class="back-nav-img"
+              />
+              <div>Back</div>
+            </a>
+          </div>
+
+          <div class="content-container">
+            <h1>QA & Tooling</h1>
+
+            <section class="items-container">
+              <div class="resouce-items">
+                {projects.map((project) => (
+                  <Project title={project.title} desc={project.desc} tech={project.tech} />
+                ))}
+              </div>
+>>>>>>> 67c98db (add github pages workflow)
             </section>
           </div>
         </div>
       </nav>
     </div>
 
+<<<<<<< HEAD
     <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+=======
+    <!--[if lte IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script>
+    <![endif]-->
+>>>>>>> 67c98db (add github pages workflow)
   </body>
 </html>

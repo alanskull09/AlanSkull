@@ -1,0 +1,65 @@
+
+---
+import Header from "../../components/Header.astro";
+import Sidebar from "../../components/Sidebar.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const all = await getCollection("posts", ({ data }) => data.draft !== true);
+
+// Orden: más nuevo primero
+const posts = all.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Layout>
+  <Header title="Blog | Alan López" />
+  <div class="content">
+    <Sidebar selectedItem="blog" />
+    <nav class="main">
+      <div class="container">
+        <div class="content-container">
+          <h1>Blog</h1>
+          <p class="lead">
+            Thoughts about QA, development, games, and the stuff I’m learning while building.
+          </p>
+
+          <section class="items-container">
+            <div class="resouce-items">
+              {posts.map((post) => (
+                <a class="projects-container" href={`/blog/${post.slug}`}>
+                  <div class="single-projects-content">
+                    <h4>{post.data.title}</h4>
+
+                    <div class="mini-label-white gray-color" style="margin-top: 6px;">
+                      {post.data.date.toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "2-digit",
+                      })}
+                    </div>
+
+                    {post.data.description && (
+                      <p class="lead" style="margin-top: 10px;">
+                        {post.data.description}
+                      </p>
+                    )}
+
+                    {post.data.tags?.length ? (
+                      <div class="chips-container chips-container-small-width" style="margin-top: 12px;">
+                        {post.data.tags.map((t) => (
+                          <div class="single-chip small-chip">{t}</div>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        </div>
+      </div>
+    </nav>
+  </div>
+</Layout>

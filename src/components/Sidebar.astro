@@ -1,5 +1,18 @@
 ---
+<<<<<<< HEAD
 const { selectedItem } = Astro.props;
+=======
+const urlPath = Astro.url.pathname;
+
+// Normalizamos (quita slash final excepto "/")
+const path = urlPath !== "/" ? urlPath.replace(/\/$/, "") : "/";
+
+const isHome = path === "/";
+const isBlog = path === "/blog" || path.startsWith("/blog/");
+const isSoftware = path.startsWith("/software-development");
+const isDevops = path.startsWith("/devops");
+const isPersonal = path.startsWith("/personal-projects");
+>>>>>>> 67c98db (add github pages workflow)
 ---
 
 <aside
@@ -15,14 +28,23 @@ const { selectedItem } = Astro.props;
     <a href="/" class="w-nav-brand" aria-label="home">
       <div class="niv-data">
         <img
+<<<<<<< HEAD
           src="/assets/sam.jpg"
+=======
+          src="/assets/alan.jpg"
+>>>>>>> 67c98db (add github pages workflow)
           loading="eager"
           alt="Profile picture"
           class="niv-image"
         />
         <div>
+<<<<<<< HEAD
           <div class="label-white">Sam Bernstein</div>
           <div class="label-gray">Software Engineer</div>
+=======
+          <div class="label-white">Alan López</div>
+          <div class="label-gray">Web Dev · QA &amp; Testing</div>
+>>>>>>> 67c98db (add github pages workflow)
         </div>
       </div>
     </a>
@@ -30,9 +52,14 @@ const { selectedItem } = Astro.props;
     <nav role="navigation" class="w-nav-menu">
       <a
         href="/"
+<<<<<<< HEAD
         class={`nav-link-container w-inline-block ${
           selectedItem === 'home' ? 'w--current' : ''
         }`}
+=======
+        class={`nav-link-container w-inline-block ${isHome ? "w--current" : ""}`}
+        aria-current={isHome ? "page" : undefined}
+>>>>>>> 67c98db (add github pages workflow)
       >
         <img
           src="/assets/home.svg"
@@ -42,6 +69,7 @@ const { selectedItem } = Astro.props;
         />
         <div>Home</div>
       </a>
+<<<<<<< HEAD
       <a
         href="/software-development"
         class={`nav-link-container w-inline-block ${
@@ -50,6 +78,27 @@ const { selectedItem } = Astro.props;
         aria-current={
           selectedItem === 'software-development' ? 'page' : undefined
         }
+=======
+
+      <a
+        href="/blog"
+        class={`nav-link-container w-inline-block ${isBlog ? "w--current" : ""}`}
+        aria-current={isBlog ? "page" : undefined}
+      >
+        <img
+          src="/assets/favorite.svg"
+          loading="eager"
+          alt=""
+          class="nav-link-image"
+        />
+        <div>Blog</div>
+      </a>
+
+      <a
+        href="/software-development"
+        class={`nav-link-container w-inline-block ${isSoftware ? "w--current" : ""}`}
+        aria-current={isSoftware ? "page" : undefined}
+>>>>>>> 67c98db (add github pages workflow)
       >
         <img
           src="/assets/code.svg"
@@ -59,11 +108,19 @@ const { selectedItem } = Astro.props;
         />
         <div>Software development</div>
       </a>
+<<<<<<< HEAD
       <a
         href="/devops"
         class={`nav-link-container w-inline-block ${
           selectedItem === 'devops' ? 'w--current' : ''
         }`}
+=======
+
+      <a
+        href="/devops"
+        class={`nav-link-container w-inline-block ${isDevops ? "w--current" : ""}`}
+        aria-current={isDevops ? "page" : undefined}
+>>>>>>> 67c98db (add github pages workflow)
       >
         <img
           src="/assets/dns.svg"
@@ -71,6 +128,7 @@ const { selectedItem } = Astro.props;
           alt=""
           class="nav-link-image"
         />
+<<<<<<< HEAD
         <div>DevOps</div>
       </a>
       <a
@@ -78,6 +136,15 @@ const { selectedItem } = Astro.props;
         class={`nav-link-container w-inline-block ${
           selectedItem === 'personal-projects' ? 'w--current' : ''
         }`}
+=======
+        <div>QA &amp; Tooling</div>
+      </a>
+
+      <a
+        href="/personal-projects"
+        class={`nav-link-container w-inline-block ${isPersonal ? "w--current" : ""}`}
+        aria-current={isPersonal ? "page" : undefined}
+>>>>>>> 67c98db (add github pages workflow)
       >
         <img
           src="/assets/favorite.svg"
@@ -104,6 +171,7 @@ const { selectedItem } = Astro.props;
       />
     </div>
   </div>
+<<<<<<< HEAD
 
   <script>
     import { setupNav } from '../scripts/nav.js';
@@ -118,4 +186,6 @@ const { selectedItem } = Astro.props;
       if (cleanup) cleanup();
     });
   </script>
+=======
+>>>>>>> 67c98db (add github pages workflow)
 </aside>

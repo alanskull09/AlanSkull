@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "lonely-luminosity",
+=======
+  "name": "AlanSkull",
+>>>>>>> 67c98db (add github pages workflow)
   "type": "module",
   "version": "1.0.0",
   "scripts": {
