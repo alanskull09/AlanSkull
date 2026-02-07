@@ -12,6 +12,7 @@ const isPersonal = path.startsWith("/personal-projects");
 ---
 
 <aside
+  id="site-sidebar"
   data-animation="default"
   data-collapse="medium"
   data-duration="400"
@@ -20,6 +21,7 @@ const isPersonal = path.startsWith("/personal-projects");
   role="banner"
   class="sidebar w-nav"
 >
+
   <div class="nav-content">
     <a href="/" class="w-nav-brand" aria-label="home">
       <div class="niv-data">
@@ -128,34 +130,50 @@ const isPersonal = path.startsWith("/personal-projects");
 </aside>
 
 <script is:inline>
-  const sidebar = document.querySelector(".sidebar.w-nav");
-  const toggle = document.querySelector("[data-nav-toggle]");
-  const panel = document.querySelector("[data-menu-panel]");
-  const overlay = document.querySelector("[data-overlay]");
+  const root = document.getElementById("site-sidebar");
+  if (!root) return;
 
-  if (sidebar && toggle && panel && overlay) {
-    const isOpen = () => sidebar.classList.contains("is-open");
+  const toggle = root.querySelector("[data-nav-toggle]");
+  const panel  = root.querySelector("[data-menu-panel]");
+  const overlay = root.querySelector("[data-overlay]");
 
-    const setOpen = (open) => {
-      sidebar.classList.toggle("is-open", open);
-      toggle.setAttribute("aria-expanded", String(open));
-      document.body.style.overflow = open ? "hidden" : "";
-    };
+  // Debug mínimo (por si algo no existe)
+  // console.log("sidebar init", { root, toggle, panel, overlay });
 
-    toggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      setOpen(!isOpen());
-    });
+  if (!toggle || !panel || !overlay) return;
 
-    overlay.addEventListener("click", () => setOpen(false));
+  const isOpen = () => root.classList.contains("is-open");
 
-    panel.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", () => setOpen(false));
-    });
+  const setOpen = (open) => {
+    root.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    document.body.style.overflow = open ? "hidden" : "";
+  };
 
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") setOpen(false);
-    });
-  }
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setOpen(!isOpen());
+  });
+
+  // Soporte iOS: algunos taps no disparan click si hay capas raras
+  toggle.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setOpen(!isOpen());
+  }, { passive: false });
+
+  overlay.addEventListener("click", () => setOpen(false));
+  overlay.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    setOpen(false);
+  }, { passive: false });
+
+  panel.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => setOpen(false));
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
 </script>
