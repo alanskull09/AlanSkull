@@ -1450,40 +1450,47 @@ article blockquote {
 }
 
 
-/* ===================== */
-/* MOBILE DRAWER SIDEBAR  */
-/* (FIX iOS: botón tapado) */
-/* ===================== */
 @media (max-width: 991px) {
-  /* Quita floats de Webflow en móvil (CAUSA #1 del botón tapado) */
+  /* Quita floats Webflow */
   .w-nav-brand,
   .w-nav-menu,
   .w-nav-button {
     float: none !important;
   }
 
-  /* Header (barra de arriba) */
+  /* TOPBAR FIJO arriba (siempre visible) */
   .sidebar.w-nav {
-    position: sticky;
+    position: fixed;         /* <-- fijo */
     top: 0;
+    left: 0;
+    right: 0;
+    height: 92px;            /* ajusta si quieres */
+    padding: 16px 18px;
+
     z-index: 10000;
+    background: rgba(28, 28, 28, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
   .sidebar .nav-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
-    z-index: 10000;
   }
 
-  /* Evita que el <a class="w-nav-brand"> se estire y tape el botón */
+  /* Evita que el brand tape el botón */
   .sidebar .w-nav-brand {
     display: inline-flex;
     align-items: center;
-    max-width: calc(100% - 72px); /* deja espacio real al botón */
+    max-width: calc(100% - 72px);
     position: relative;
     z-index: 1;
   }
 
-  /* Botón SIEMPRE clickeable */
+  /* Botón siempre clickeable */
   .navbar-icon-button.w-nav-button {
     display: inline-flex !important;
     align-items: center;
@@ -1499,16 +1506,12 @@ article blockquote {
     touch-action: manipulation;
 
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.12);
     background: rgba(255,255,255,0.08);
     backdrop-filter: blur(10px);
   }
 
-  .navbar-icon-button.w-nav-button:active {
-    transform: scale(0.98);
-  }
-
-  /* Overlay para cerrar tocando fuera */
+  /* Overlay para cerrar */
   .mobile-overlay {
     position: fixed;
     inset: 0;
@@ -1524,7 +1527,7 @@ article blockquote {
     pointer-events: auto;
   }
 
-  /* Drawer lateral (horizontal) */
+  /* Drawer lateral */
   .sidebar .w-nav-menu {
     position: fixed;
     top: 0;
@@ -1533,7 +1536,7 @@ article blockquote {
     height: 100vh;
     width: min(84vw, 360px);
 
-    padding: 18px 14px;
+    padding: 110px 14px 18px; /* <-- deja espacio para el topbar */
     overflow-y: auto;
 
     background: rgba(28, 28, 28, 0.96);
@@ -1542,18 +1545,16 @@ article blockquote {
 
     transform: translateX(-105%);
     transition: transform 220ms ease;
-
-    z-index: 10002; /* arriba del overlay */
+    z-index: 10002;
   }
 
   .sidebar.is-open .w-nav-menu {
     transform: translateX(0);
   }
 
-  /* Links: se ven bien en drawer */
-  .sidebar .nav-link-container {
-    background: transparent;
-    border-radius: 10px;
-    padding: 14px 14px;
+  /* IMPORTANTE: el contenido de la página debe bajar
+     porque el topbar está fijo arriba */
+  .content {
+    padding-top: 92px;
   }
 }
