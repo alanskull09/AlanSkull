@@ -36,7 +36,7 @@ const isPersonal = path.startsWith("/personal-projects");
       </div>
     </a>
 
-    <nav role="navigation" class="w-nav-menu">
+<nav role="navigation" class="w-nav-menu" data-menu-panel>
       <a
         href="/"
         class={`nav-link-container w-inline-block ${isHome ? "w--current" : ""}`}
@@ -124,34 +124,38 @@ const isPersonal = path.startsWith("/personal-projects");
 </button>
 
   </div>
+  <div class="mobile-overlay" data-overlay></div>
 </aside>
 
 <script is:inline>
   const sidebar = document.querySelector(".sidebar.w-nav");
   const toggle = document.querySelector("[data-nav-toggle]");
-  const menu = sidebar?.querySelector(".w-nav-menu");
+  const panel = document.querySelector("[data-menu-panel]");
+  const overlay = document.querySelector("[data-overlay]");
 
-  if (toggle && sidebar && menu) {
+  if (sidebar && toggle && panel && overlay) {
+    const isOpen = () => sidebar.classList.contains("is-open");
+
     const setOpen = (open) => {
-      sidebar.classList.toggle("w--open", open);
+      sidebar.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", String(open));
-      menu.style.display = open ? "block" : "";
+      document.body.style.overflow = open ? "hidden" : "";
     };
 
     toggle.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
-      const open = !sidebar.classList.contains("w--open");
-      setOpen(open);
+      setOpen(!isOpen());
     });
 
-    document.addEventListener("click", (e) => {
-      if (!sidebar.contains(e.target)) setOpen(false);
-    });
+    overlay.addEventListener("click", () => setOpen(false));
 
-    menu.querySelectorAll("a").forEach((a) => {
+    panel.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", () => setOpen(false));
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
     });
   }
 </script>
-
