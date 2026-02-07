@@ -1,7 +1,5 @@
 ---
 const urlPath = Astro.url.pathname;
-
-// Normalizamos (quita slash final excepto "/")
 const path = urlPath !== "/" ? urlPath.replace(/\/$/, "") : "/";
 
 const isHome = path === "/";
@@ -21,7 +19,6 @@ const isPersonal = path.startsWith("/personal-projects");
   role="banner"
   class="sidebar w-nav"
 >
-
   <div class="nav-content">
     <a href="/" class="w-nav-brand" aria-label="home">
       <div class="niv-data">
@@ -38,18 +35,13 @@ const isPersonal = path.startsWith("/personal-projects");
       </div>
     </a>
 
-<nav role="navigation" class="w-nav-menu" data-menu-panel>
+    <nav role="navigation" class="w-nav-menu" data-menu-panel>
       <a
         href="/"
         class={`nav-link-container w-inline-block ${isHome ? "w--current" : ""}`}
         aria-current={isHome ? "page" : undefined}
       >
-        <img
-          src="/assets/home.svg"
-          loading="eager"
-          alt=""
-          class="nav-link-image"
-        />
+        <img src="/assets/home.svg" loading="eager" alt="" class="nav-link-image" />
         <div>Home</div>
       </a>
 
@@ -58,12 +50,7 @@ const isPersonal = path.startsWith("/personal-projects");
         class={`nav-link-container w-inline-block ${isBlog ? "w--current" : ""}`}
         aria-current={isBlog ? "page" : undefined}
       >
-        <img
-          src="/assets/favorite.svg"
-          loading="eager"
-          alt=""
-          class="nav-link-image"
-        />
+        <img src="/assets/favorite.svg" loading="eager" alt="" class="nav-link-image" />
         <div>Blog</div>
       </a>
 
@@ -72,12 +59,7 @@ const isPersonal = path.startsWith("/personal-projects");
         class={`nav-link-container w-inline-block ${isSoftware ? "w--current" : ""}`}
         aria-current={isSoftware ? "page" : undefined}
       >
-        <img
-          src="/assets/code.svg"
-          loading="eager"
-          alt=""
-          class="nav-link-image"
-        />
+        <img src="/assets/code.svg" loading="eager" alt="" class="nav-link-image" />
         <div>Software development</div>
       </a>
 
@@ -86,12 +68,7 @@ const isPersonal = path.startsWith("/personal-projects");
         class={`nav-link-container w-inline-block ${isDevops ? "w--current" : ""}`}
         aria-current={isDevops ? "page" : undefined}
       >
-        <img
-          src="/assets/dns.svg"
-          loading="eager"
-          alt=""
-          class="nav-link-image"
-        />
+        <img src="/assets/dns.svg" loading="eager" alt="" class="nav-link-image" />
         <div>QA &amp; Tooling</div>
       </a>
 
@@ -100,47 +77,34 @@ const isPersonal = path.startsWith("/personal-projects");
         class={`nav-link-container w-inline-block ${isPersonal ? "w--current" : ""}`}
         aria-current={isPersonal ? "page" : undefined}
       >
-        <img
-          src="/assets/favorite.svg"
-          loading="eager"
-          alt=""
-          class="nav-link-image"
-        />
+        <img src="/assets/favorite.svg" loading="eager" alt="" class="nav-link-image" />
         <div>Personal projects</div>
       </a>
     </nav>
 
-   <button
-  type="button"
-  class="navbar-icon-button w-nav-button"
-  aria-label="menu"
-  aria-expanded="false"
-  data-nav-toggle
->
-  <img
-    src="/assets/menu.svg"
-    loading="eager"
-    alt=""
-    class="navbar-icon"
-  />
-</button>
-
+    <button
+      type="button"
+      class="navbar-icon-button w-nav-button"
+      aria-label="menu"
+      aria-expanded="false"
+      data-nav-toggle
+    >
+      <img src="/assets/menu.svg" loading="eager" alt="" class="navbar-icon" />
+    </button>
   </div>
+
   <div class="mobile-overlay" data-overlay></div>
 </aside>
 
 <script is:inline>
   const root = document.getElementById("site-sidebar");
-  if (!root) return;
+  if (!root) {}
 
-  const toggle = root.querySelector("[data-nav-toggle]");
-  const panel  = root.querySelector("[data-menu-panel]");
-  const overlay = root.querySelector("[data-overlay]");
+  const toggle = root && root.querySelector("[data-nav-toggle]");
+  const panel = root && root.querySelector("[data-menu-panel]");
+  const overlay = root && root.querySelector("[data-overlay]");
 
-  // Debug mínimo (por si algo no existe)
-  // console.log("sidebar init", { root, toggle, panel, overlay });
-
-  if (!toggle || !panel || !overlay) return;
+  if (!root || !toggle || !panel || !overlay) {}
 
   const isOpen = () => root.classList.contains("is-open");
 
@@ -150,29 +114,29 @@ const isPersonal = path.startsWith("/personal-projects");
     document.body.style.overflow = open ? "hidden" : "";
   };
 
-  toggle.addEventListener("pointerup", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  setOpen(!isOpen());
-});
+  const onToggle = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setOpen(!isOpen());
+  };
 
+  toggle.addEventListener("click", onToggle, { passive: false });
+  toggle.addEventListener("touchend", onToggle, { passive: false });
 
-  toggle.addEventListener("pointerup", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  setOpen(!isOpen());
-});
+  overlay.addEventListener("click", () => setOpen(false), { passive: true });
+  overlay.addEventListener("touchstart", () => setOpen(false), { passive: true });
 
-overlay.addEventListener("click", () => setOpen(false));
-
-
-  
   panel.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => setOpen(false));
+    a.addEventListener("click", () => setOpen(false), { passive: true });
+    a.addEventListener("touchstart", () => setOpen(false), { passive: true });
   });
-
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setOpen(false);
   });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 991) setOpen(false);
+  });
 </script>
+
