@@ -171,13 +171,7 @@ ul {
   position: relative;
 }
 
-.w-nav-menu.is-open {
-  display: block !important;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 92px;
-}
+
 
 .w-nav-button {
   float: right;
@@ -508,11 +502,12 @@ ul {
     transition: transform 250ms ease, opacity 250ms ease;
     will-change: transform, opacity;
   }
-
+  
   .w-nav[data-collapse='medium'] .w-nav-menu.is-visible.is-open {
     transform: translateY(0);
     opacity: 1;
   }
+  
 
   .w-nav[data-collapse='medium'] .w-nav-button {
     display: block;
@@ -872,7 +867,7 @@ article blockquote {
 }
 
 
-v/* ===================================================== */
+/* ===================================================== */
 /* 🔥 NEON BLOG UPGRADE – Alan Style (QA / Dev / Gamer)  */
 /* ===================================================== */
 
@@ -1357,37 +1352,208 @@ v/* ===================================================== */
 }
 
 
+
 /* ===================== */
-/* MOBILE DRAWER SIDEBAR  */
+/* MOBILE DRAWER SIDEBAR */
 /* ===================== */
-@media (max-width: 767px) {
+@media (max-width: 991px) {
+  /* el botón siempre clickeable arriba */
   .navbar-icon-button.w-nav-button {
-    background: red !important;
-    padding: 16px !important;
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
   }
-}
 
-
-  /* overlay NO debe cubrir el botón */
+  /* overlay para cerrar tocando fuera */
   .mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
     z-index: 9000;
   }
 
-  /* panel debajo del botón */
-  .sidebar.w-nav .w-nav-menu {
-    z-index: 9500;
+  .sidebar.is-open .mobile-overlay {
+    opacity: 1;
+    pointer-events: auto;
   }
 
+  /* panel: drawer lateral */
+  .w-nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: min(84vw, 340px);
+    padding: 18px 14px;
+    overflow-y: auto;
 
+    background: rgba(28, 28, 28, 0.96);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
 
-.hero,
-.hero *::before,
-.hero *::after,
-.overlay,
-.bg,
-.background,
-.noise,
-.gradient {
-  pointer-events: none;
+    transform: translateX(-105%);
+    transition: transform 220ms ease;
+    z-index: 9500;
+
+    /* important: en móvil NO debe flotar */
+    float: none;
+  }
+
+  .sidebar.is-open .w-nav-menu {
+    transform: translateX(0);
+  }
 }
 
+/* =============================== */
+/* FIX iOS: botón siempre clickeable */
+/* =============================== */
+@media (max-width: 991px) {
+  /* crea stacking context arriba de todo */
+  #site-sidebar {
+    position: relative;
+    z-index: 10000;
+  }
+
+  /* el header/topbar que contiene el botón */
+  #site-sidebar .nav-content {
+    position: relative;
+    z-index: 10001;
+  }
+
+  /* el botón por encima de todo */
+  #site-sidebar .w-nav-button {
+    position: relative !important;
+    z-index: 10002 !important;
+    pointer-events: auto !important;
+  }
+
+  /* IMPORTANTÍSIMO: el menú NO debe tapar el botón cuando está cerrado */
+  #site-sidebar .w-nav-menu {
+    pointer-events: none; /* cerrado: no captura taps */
+  }
+
+  #site-sidebar.is-open .w-nav-menu {
+    pointer-events: auto; /* abierto: sí */
+  }
+
+  /* overlay solo captura cuando está abierto */
+  #site-sidebar .mobile-overlay {
+    pointer-events: none;
+  }
+
+  #site-sidebar.is-open .mobile-overlay {
+    pointer-events: auto;
+  }
+}
+
+
+/* ===================== */
+/* MOBILE DRAWER SIDEBAR  */
+/* (FIX iOS: botón tapado) */
+/* ===================== */
+@media (max-width: 991px) {
+  /* Quita floats de Webflow en móvil (CAUSA #1 del botón tapado) */
+  .w-nav-brand,
+  .w-nav-menu,
+  .w-nav-button {
+    float: none !important;
+  }
+
+  /* Header (barra de arriba) */
+  .sidebar.w-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+  }
+
+  .sidebar .nav-content {
+    position: relative;
+    z-index: 10000;
+  }
+
+  /* Evita que el <a class="w-nav-brand"> se estire y tape el botón */
+  .sidebar .w-nav-brand {
+    display: inline-flex;
+    align-items: center;
+    max-width: calc(100% - 72px); /* deja espacio real al botón */
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Botón SIEMPRE clickeable */
+  .navbar-icon-button.w-nav-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+
+    position: relative;
+    z-index: 10002;
+
+    pointer-events: auto !important;
+    touch-action: manipulation;
+
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+  }
+
+  .navbar-icon-button.w-nav-button:active {
+    transform: scale(0.98);
+  }
+
+  /* Overlay para cerrar tocando fuera */
+  .mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.50);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+    z-index: 10001;
+  }
+
+  .sidebar.is-open .mobile-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Drawer lateral (horizontal) */
+  .sidebar .w-nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    width: min(84vw, 360px);
+
+    padding: 18px 14px;
+    overflow-y: auto;
+
+    background: rgba(28, 28, 28, 0.96);
+    border-right: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(12px);
+
+    transform: translateX(-105%);
+    transition: transform 220ms ease;
+
+    z-index: 10002; /* arriba del overlay */
+  }
+
+  .sidebar.is-open .w-nav-menu {
+    transform: translateX(0);
+  }
+
+  /* Links: se ven bien en drawer */
+  .sidebar .nav-link-container {
+    background: transparent;
+    border-radius: 10px;
+    padding: 14px 14px;
+  }
+}
