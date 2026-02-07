@@ -1355,3 +1355,39 @@ v/* ===================================================== */
     letter-spacing: -0.3px;
   }
 }
+
+
+/* ===================== */
+/* MOBILE DRAWER SIDEBAR  */
+/* ===================== */
+@media (max-width: 767px) {
+  .navbar-icon-button.w-nav-button {
+    background: red !important;
+    padding: 16px !important;
+  }
+}
+
+
+  /* overlay NO debe cubrir el botón */
+  .mobile-overlay {
+    z-index: 9000;
+  }
+
+  /* panel debajo del botón */
+  .sidebar.w-nav .w-nav-menu {
+    z-index: 9500;
+  }
+
+
+
+.hero,
+.hero *::before,
+.hero *::after,
+.overlay,
+.bg,
+.background,
+.noise,
+.gradient {
+  pointer-events: none;
+}
+
