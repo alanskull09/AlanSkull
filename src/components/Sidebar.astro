@@ -108,19 +108,50 @@ const isPersonal = path.startsWith("/personal-projects");
       </a>
     </nav>
 
-    <div
-      class="navbar-icon-button w-nav-button"
-      style="-webkit-user-select: text;"
-      aria-label="menu"
-      role="button"
-      tabindex="0"
-    >
-      <img
-        src="/assets/menu.svg"
-        loading="eager"
-        alt=""
-        class="navbar-icon"
-      />
-    </div>
+   <button
+  type="button"
+  class="navbar-icon-button w-nav-button"
+  aria-label="menu"
+  aria-expanded="false"
+  data-nav-toggle
+>
+  <img
+    src="/assets/menu.svg"
+    loading="eager"
+    alt=""
+    class="navbar-icon"
+  />
+</button>
+
   </div>
 </aside>
+
+<script is:inline>
+  const sidebar = document.querySelector(".sidebar.w-nav");
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const menu = sidebar?.querySelector(".w-nav-menu");
+
+  if (toggle && sidebar && menu) {
+    const setOpen = (open) => {
+      sidebar.classList.toggle("w--open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      menu.style.display = open ? "block" : "";
+    };
+
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const open = !sidebar.classList.contains("w--open");
+      setOpen(open);
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!sidebar.contains(e.target)) setOpen(false);
+    });
+
+    menu.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => setOpen(false));
+    });
+  }
+</script>
+
