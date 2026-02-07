@@ -157,19 +157,16 @@ const isPersonal = path.startsWith("/personal-projects");
 });
 
 
-  // Soporte iOS: algunos taps no disparan click si hay capas raras
-  toggle.addEventListener("touchend", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setOpen(!isOpen());
-  }, { passive: false });
+  toggle.addEventListener("pointerup", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  setOpen(!isOpen());
+});
 
-  overlay.addEventListener("click", () => setOpen(false));
-  overlay.addEventListener("touchend", (e) => {
-    e.preventDefault();
-    setOpen(false);
-  }, { passive: false });
+overlay.addEventListener("click", () => setOpen(false));
 
+
+  
   panel.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", () => setOpen(false));
   });
