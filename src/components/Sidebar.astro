@@ -150,11 +150,12 @@ const isPersonal = path.startsWith("/personal-projects");
     document.body.style.overflow = open ? "hidden" : "";
   };
 
-  toggle.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setOpen(!isOpen());
-  });
+  toggle.addEventListener("pointerup", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  setOpen(!isOpen());
+});
+
 
   // Soporte iOS: algunos taps no disparan click si hay capas raras
   toggle.addEventListener("touchend", (e) => {
